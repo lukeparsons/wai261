@@ -1,6 +1,6 @@
 import * as React from 'react'
 
-import { ChakraProvider, Heading, Center, Input, Box, Button } from '@chakra-ui/react'
+import { ChakraProvider, Heading, Center, Input, Box, Button, Stack } from '@chakra-ui/react'
 import Message from "./Message";
 
 function App() {
@@ -8,15 +8,24 @@ function App() {
   return (
     <ChakraProvider>
       <Center>
-        <Box>
-          <Heading>ChakraUI Heading</Heading>
-          <Message/>
-          <Message/>
-          <Input onChange={(e) => console.log(e.target.value)}/>
-          <Button onClick={() => console.log("Hello World")}>Send Message</Button>
-        </Box>
+        <Stack spacing='20px'>
+          <Box>
+            <Heading>Chatbot</Heading>
+          </Box>
+              <Box>
+                <Message></Message>
+                <Message></Message>
+                <Message></Message>
+              </Box>
+              <Box>
+                <Input placeholder='Enter Message'/>
+              </Box>
+              <Box>
+                <Button onClick={() => console.log("Hello World")}>Send Message</Button>
+              </Box>
+        </Stack>
       </Center>
     </ChakraProvider>
-  )
+  );
 }
 export default App;
