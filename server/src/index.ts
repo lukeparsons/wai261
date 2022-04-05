@@ -14,7 +14,7 @@ const port = 5000;
 
 app.use(
   cors({
-    origin: "http://localhost:3000",
+    origin: ["http://localhost:3000", "https://vercel.com/lukeparsons/wai261/29nygxTys8WUxjoviAJpRrQWRSPz"],
   })
 );
 app.use(bodyParser.json());
@@ -54,7 +54,7 @@ app.post("/addMessage", (req, res) => {
       },
       {
         headers: {
-          Authorization: "Bearer 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",
+          Authorization: "Bearer <HIDE>",
         },
       }
     )
@@ -91,3 +91,5 @@ app.post("/addMessage", (req, res) => {
   // Send updated messages back (not guaranteed to include new AI message tho)
   res.status(200).send(messages);
 });
+
+app.listen(port, () => console.log(`Running on port ${port}`));

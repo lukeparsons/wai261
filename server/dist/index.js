@@ -10,7 +10,7 @@ const axios_1 = __importDefault(require("axios"));
 const app = (0, express_1.default)();
 const port = 5000;
 app.use((0, cors_1.default)({
-    origin: "http://localhost:3000",
+    origin: ["http://localhost:3000", "https://vercel.com/lukeparsons/wai261/29nygxTys8WUxjoviAJpRrQWRSPz"],
 }));
 app.use(body_parser_1.default.json());
 var messages = [];
@@ -72,4 +72,5 @@ app.post("/addMessage", (req, res) => {
     // Send updated messages back (not guaranteed to include new AI message tho)
     res.status(200).send(messages);
 });
+app.listen(port, () => console.log(`Running on port ${port}`));
 //# sourceMappingURL=index.js.map
