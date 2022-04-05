@@ -24,7 +24,7 @@ function App() {
   const [messages, setMessages] = useState<MessageObject[]>([]);
 
   useEffect(() => {
-    axios.get("http://localhost:5000/messages").then((res) => {
+    axios.get(process.env.REACT_APP_SERVER_URL + "/messages").then((res) => {
       console.log(res);
       setMessages(
         res.data.map((message: any) => {
@@ -40,7 +40,7 @@ function App() {
 
   useEffect(() => {
     const messagesRefreshInterval = setInterval(() => {
-      axios.get("http://localhost:5000/messages").then((res) => {
+      axios.get(process.env.REACT_APP_SERVER_URL + "/messages").then((res) => {
         console.log(res);
         setMessages(
           res.data.map((message: any) => {
@@ -60,7 +60,7 @@ function App() {
 
   // Handle adding a new message and querying hugging face for NLP analysis
   const handleMessages = async () => {
-    const res = await axios.post("http://localhost:5000/addMessage", {
+    const res = await axios.post(process.env.REACT_APP_SERVER_URL + "/addMessages", {
       contents: msg,
       user: "me",
       time: new Date(),

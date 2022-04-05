@@ -10,7 +10,6 @@ interface MessageObject {
 }
 
 const app = express();
-const port = 5000;
 
 app.use(
   cors({
@@ -54,7 +53,7 @@ app.post("/addMessage", (req, res) => {
       },
       {
         headers: {
-          Authorization: "Bearer <HIDE>",
+          Authorization: "Bearer ",
         },
       }
     )
@@ -92,4 +91,4 @@ app.post("/addMessage", (req, res) => {
   res.status(200).send(messages);
 });
 
-app.listen(port, () => console.log(`Running on port ${port}`));
+app.listen(process.env.PORT || 5000, () => console.log(`Running on port ${process.env.port || 5000 }`));
